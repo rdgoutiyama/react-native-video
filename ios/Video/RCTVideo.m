@@ -5,6 +5,7 @@
 #import <React/UIView+React.h>
 #include <MediaAccessibility/MediaAccessibility.h>
 #include <AVFoundation/AVFoundation.h>
+#include <stdio.h>
 
 static NSString *const statusKeyPath = @"status";
 static NSString *const playbackLikelyToKeepUpKeyPath = @"playbackLikelyToKeepUp";
@@ -997,6 +998,14 @@ static int const RCTVideoUnset = -1;
     CMTime tolerance = CMTimeMake([seekTolerance floatValue], timeScale);
     BOOL wasPaused = _paused;
     
+      NSLog(@"**********************************");
+      NSLog(@"**********************************");
+      NSLog(@"teste = %d", CMTimeCompare(current, cmSeekTime));
+      NSLog(@"seconds = %f", CMTimeGetSeconds(cmSeekTime));
+
+      
+      NSLog(@"**********************************");
+      NSLog(@"**********************************");
     if (CMTimeCompare(current, cmSeekTime) != 0) {
       if (!wasPaused) [_player pause];
       [_player seekToTime:cmSeekTime toleranceBefore:tolerance toleranceAfter:tolerance completionHandler:^(BOOL finished) {

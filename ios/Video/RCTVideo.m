@@ -1000,7 +1000,7 @@ static int const RCTVideoUnset = -1;
     
       NSLog(@"**********************************");
       NSLog(@"**********************************");
-      NSLog(@"teste = %d", CMTimeCompare(current, cmSeekTime));
+      NSLog(@"teste1 = %d", CMTimeCompare(current, cmSeekTime));
       NSLog(@"seconds = %f", CMTimeGetSeconds(cmSeekTime));
 
       
@@ -1008,7 +1008,7 @@ static int const RCTVideoUnset = -1;
       NSLog(@"**********************************");
     if (CMTimeCompare(current, cmSeekTime) != 0) {
       if (!wasPaused) [_player pause];
-      [_player seekToTime:cmSeekTime toleranceBefore:tolerance toleranceAfter:tolerance completionHandler:^(BOOL finished) {
+      [item seekToTime:cmSeekTime toleranceBefore:tolerance toleranceAfter:tolerance completionHandler:^(BOOL finished) {
         if (!_timeObserver) {
           [self addPlayerTimeObserver];
         }
